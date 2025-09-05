@@ -32,7 +32,7 @@ async function registerUser(req, res) {
 
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
 
-  res.cookie("ai-interview_token", token);
+  res.cookie("token", token);
 
   res.status(200).json({
     message: "user logged in successfully",
@@ -64,7 +64,7 @@ async function loginUser(req, res) {
   }
 
   const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET);
-  res.cookie("ai-interview_token", token);
+  res.cookie("token", token);
 
   res.status(200).json({
     message: "user logged in succesfully",
